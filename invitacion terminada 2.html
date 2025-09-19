@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Hernán Cumple 18 Años!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0e17 0%, #1a2238 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(10, 10, 30, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(0, 174, 255, 0.2) 0%, rgba(0, 119, 255, 0.2) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .edad {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            background: #ffd700;
+            color: #0a0a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            z-index: 10;
+            border: 2px solid #00aeff;
+        }
+        
+        .titulo {
+            font-size: 4.5rem;
+            color: #00aeff;
+            text-shadow: 0 0 15px rgba(0, 174, 255, 0.7);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitulo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.0rem;
+            color: #ffd700;
+            margin-bottom: 30px;
+        }
+        
+        .contenido {
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .foto-section {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .marco-foto {
+            border: 5px solid #ffd700;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: #2a2a4a;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+            font-style: italic;
+            position: relative;
+        }
+        
+        /* Estilos para el carrusel - MODIFICADO PARA 6 FOTOS */
+        .carrusel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .carrusel-imagenes {
+            display: flex;
+            width: 600%; /* Cambiado a 600% para 6 imágenes (6 * 100%) */
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        
+        .carrusel-img {
+            width: 16.666%; /* 100% / 6 imágenes = 16.666% */
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carrusel-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 20;
+        }
+        
+        .carrusel-indicador {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carrusel-indicador.activo {
+            background-color: #ffd700;
+            transform: scale(1.2);
+        }
+        
+        .texto-invitacion {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #00aeff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .saludo {
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .mensaje {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .destacado {
+            color: #00aeff;
+            font-weight: bold;
+        }
+        
+        .detalles {
+            margin-top: 10px;
+        }
+        
+        .detalle-item {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+        
+        .icono {
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 174, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: #ffd700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        
+        .info-detalle {
+            flex: 1;
+        }
+        
+        .titulo-detalle {
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 3px;
+            font-size: 0.95rem;
+        }
+        
+        .ubicacion-link {
+            color: #00aeff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        
+        .ubicacion-link:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+        
+        .nota-pileta {
+            background: rgba(0, 174, 255, 0.1);
+            border: 1px solid rgba(0, 174, 255, 0.3);
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+        
+        /* Sección de alias horizontal */
+        .seccion-alias-horizontal {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 174, 255, 0.1) 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 0 30px 30px;
+            text-align: center;
+            border: 1px dashed #ffd700;
+        }
+        
+        .titulo-alias {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .alias-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            width: 100%;
+        }
+        
+        .alias-texto {
+            font-size: 1.8rem;
+            color: #00aeff;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px solid #ffd700;
+            text-shadow: 0 0 10px rgba(0, 174, 255, 0.5);
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        
+        .btn-copiar {
+            background: linear-gradient(135deg, #00aeff 0%, #0077ff 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 174, 255, 0.5);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        
+        .btn-copiar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 174, 255, 0.7);
+        }
+        
+        .nota-alias {
+            font-style: italic;
+            color: #ffd700;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            gap: 15px;
+        }
+        
+        .countdown-item {
+            flex: 1;
+            text-align: center;
+            background: rgba(0, 174, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 174, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .countdown-numero {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00aeff;
+            text-shadow: 0 0 10px rgba(0, 174, 255, 0.5);
+        }
+        
+        .countdown-texto {
+            color: #ffd700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        
+        .confirmacion {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.7);
+        }
+        
+        .firma {
+            text-align: right;
+            margin-top: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #ffd700;
+            padding: 0 30px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(0, 174, 255, 0.3);
+        }
+        
+        .share-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .share-text {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .share-btn {
+            display: inline-block;
+            background: rgba(0, 174, 255, 0.2);
+            color: white;
+            border: 1px solid #00aeff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .share-btn:hover {
+            background: rgba(0, 174, 255, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .contenido {
+                flex-direction: column;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item {
+                flex-basis: calc(50% - 15px);
+                margin-bottom: 15px;
+            }
+            
+            .titulo {
+                font-size: 3rem;
+            }
+            
+            .subtitulo {
+                font-size: 2.2rem;
+            }
+            
+            .alias-container {
+                flex-direction: column;
+            }
+            
+            .alias-texto {
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .btn-copiar {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .marco-foto {
+                height: 350px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="edad">18</div>
+            <h1 class="titulo">¡Mis 18!</h1>
+            <h2 class="subtitulo">Hernan</h2>
+        </div>
+        
+        <div class="contenido">
+            <div class="foto-section">
+                <div class="marco-foto">
+                    <!-- Carrusel de 6 fotos (4 originales + 2 nuevas) -->
+                    <div class="carrusel">
+                        <div class="carrusel-imagenes">
+                            <img src="images/bebe.jpg" alt="Hernán 1" class="carrusel-img">
+                            <img src="images/bebe boca.jpg" alt="Hernán 2" class="carrusel-img">
+                            <img src="images/burro.JPG" alt="Hernán 3" class="carrusel-img">
+                            <img src="images/pico.jpg" alt="Hernán 4" class="carrusel-img">
+                            <!-- Agregamos 2 imágenes más -->
+                            <img src="images/rio negro.jpg" alt="Hernán 5" class="carrusel-img">
+                            <img src="images/espalda.jpg" alt="Hernán 6" class="carrusel-img">
+                        </div>
+                        <div class="carrusel-controls">
+                            <div class="carrusel-indicador activo" data-index="0"></div>
+                            <div class="carrusel-indicador" data-index="1"></div>
+                            <div class="carrusel-indicador" data-index="2"></div>
+                            <div class="carrusel-indicador" data-index="3"></div>
+                            <div class="carrusel-indicador" data-index="4"></div>
+                            <div class="carrusel-indicador" data-index="5"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="texto-invitacion">
+                <div>
+                    <h3 class="saludo">¡Hola gente!</h3>
+                    <p class="mensaje">
+                        Después de <span class="destacado">18 años</span> ¡llegó el dia! 
+                        No me podía hacer mayor sin festejar con toda la gente que más quiero.
+                    </p>
+                    <p class="mensaje">
+                        Así que los espero para pasar una tarde juntos!
+                    </p>
+                </div>
+                
+                <div class="detalles">
+                    <div class="detalle-item">
+                        <div class="icono">📅</div>
+                        <div class="info-detalle">
+                            <div class="titulo-detalle">Fecha</div>
+                            <div>25 de Octubre</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detalle-item">
+                        <div class="icono">⏰</div>
+                        <div class="info-detalle">
+                            <div class="titulo-detalle">Hora</div>
+                            <div> 13hs a 19hs</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detalle-item">
+                        <div class="icono">📍</div>
+                        <div class="info-detalle">
+                            <div class="titulo-detalle">Lugar</div>
+                            <div>
+                                <a class="ubicacion-link" id="ubicacionLink" target="_blank">
+                                    Paganini 3560 - Quinta "Kalelu" | click para ver ubicacion
+                                    <i class="fas fa-map-marker-alt" style="margin-left: 5px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nota-pileta">
+                    <strong>¡Datazo!</strong> La quinta tiene pileta, así que si hace calor, 
+                    traete malla y toalla.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de alias horizontal -->
+        <div class="seccion-alias-horizontal">
+            <h3 class="titulo-alias">¿Queres regalarme algo ,pero no sabes que? no pasa nada ,dejo mi alias 😊</h3>
+            <div class="alias-container">
+                <div class="alias-texto" id="aliasText">agus.cdba</div>
+                <button class="btn-copiar" onclick="copyAlias()">
+                    <i class="fas fa-copy"></i> Copiar Alias
+                </button>
+            </div>
+            <p class="nota-alias"></p>
+        </div>
+        
+        <div style="padding: 0 30px;">
+            <h3 style="text-align: center; color: #ffd700; margin-bottom: 20px; font-family: 'Dancing Script', cursive; font-size: 2rem;">
+                Cuenta regresiva
+            </h3>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-numero" id="days">00</div>
+                    <div class="countdown-texto">Días</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-numero" id="hours">00</div>
+                    <div class="countdown-texto">Horas</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-numero" id="minutes">00</div>
+                    <div class="countdown-texto">Minutos</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-numero" id="seconds">00</div>
+                    <div class="countdown-texto">Segundos</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="confirmacion">
+            <!-- REEMPLAZA ESTE ENLACE CON TU NÚMERO Y MENSAJE PERSONALIZADO -->
+            <a href="https://wa.me/5491163081280?text=¡Hola%20Hernán!%20si%20voy%20a%20asistir%20" class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+            </a>
+        </div>
+        
+        <div class="firma">Hernán</div>
+        
+        <div class="footer">
+            <p>¡espero que estes!</p>
+        </div>
+    </div>
+
+    <script>
+        // Cuenta regresiva (25 octubre 2025, 13:00)
+        const birthdayDate = new Date(2025, 9, 25, 13, 0);
+        function updateCountdown() {
+          const now = new Date();
+          const timeDifference = birthdayDate - now;
+          if (timeDifference <= 0) return;
+          const days = Math.floor(timeDifference / (1000*60*60*24));
+          const hours = Math.floor((timeDifference % (1000*60*60*24)) / (1000*60*60));
+          const minutes = Math.floor((timeDifference % (1000*60*60)) / (1000*60));
+          const seconds = Math.floor((timeDifference % (1000*60)) / 1000);
+          document.getElementById('days').textContent = days.toString().padStart(2,'0');
+          document.getElementById('hours').textContent = hours.toString().padStart(2,'0');
+          document.getElementById('minutes').textContent = minutes.toString().padStart(2,'0');
+          document.getElementById('seconds').textContent = seconds.toString().padStart(2,'0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    
+        // Carrusel - CÓDIGO CORREGIDO
+        let currentIndex = 0;
+        const totalImages = 6; // Ahora son 6 imágenes
+        const carrusel = document.querySelector('.carrusel-imagenes');
+        const indicadores = document.querySelectorAll('.carrusel-indicador');
+        
+        function moverCarrusel() {
+            // Mueve el carrusel a la imagen actual
+            carrusel.style.transform = `translateX(-${currentIndex * 16.666}%)`;
+            
+            // Actualiza los indicadores
+            indicadores.forEach((ind, index) => {
+                if (index === currentIndex) {
+                    ind.classList.add('activo');
+                } else {
+                    ind.classList.remove('activo');
+                }
+            });
+            
+            // Avanza al siguiente índice
+            currentIndex = (currentIndex + 1) % totalImages;
+        }
+        
+        // Iniciar el carrusel automático
+        let carruselInterval = setInterval(moverCarrusel, 4000);
+        
+        // Agregar eventos a los indicadores
+        indicadores.forEach(ind => {
+            ind.addEventListener('click', function() {
+                // Reiniciar el intervalo al hacer clic manual
+                clearInterval(carruselInterval);
+                currentIndex = parseInt(this.getAttribute('data-index'));
+                moverCarrusel();
+                carruselInterval = setInterval(moverCarrusel, 4000);
+            });
+        });
+    
+        // Copiar alias
+        function copyAlias() {
+          const alias = document.getElementById('aliasText').textContent;
+          navigator.clipboard.writeText(alias);
+          alert("Alias copiado: " + alias);
+        }
+        
+        document.getElementById('ubicacionLink').addEventListener('click', function() {
+            // Reemplaza con la dirección real de tu quinta
+            const url = `https://maps.app.goo.gl/dBUoKQFEsxxUZKtH9`;
+            window.open(url, '_blank');
+        });
+      </script>
+</body>
+</html>
