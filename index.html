@@ -634,7 +634,7 @@
         }
         
         // Iniciar el carrusel automático
-        let carruselInterval = setInterval(moverCarrusel, 4000);
+        let carruselInterval = setInterval(moverCarrusel, 2000);
         
         // Agregar eventos a los indicadores
         indicadores.forEach(ind => {
@@ -643,7 +643,7 @@
                 clearInterval(carruselInterval);
                 currentIndex = parseInt(this.getAttribute('data-index'));
                 moverCarrusel();
-                carruselInterval = setInterval(moverCarrusel, 4000);
+                carruselInterval = setInterval(moverCarrusel, 2000);
             });
         });
     
