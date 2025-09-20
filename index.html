@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Hernán Cumple 18 Años!</title>
+    <title>¡Mis 18 Años!</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -37,7 +37,7 @@
         
         .header {
             text-align: center;
-            padding: 40px;
+            padding: 30px 20px;
             background: linear-gradient(135deg, rgba(0, 174, 255, 0.2) 0%, rgba(0, 119, 255, 0.2) 100%);
             position: relative;
             overflow: hidden;
@@ -45,17 +45,17 @@
         
         .edad {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 70px;
-            height: 70px;
+            top: 15px;
+            right: 15px;
+            width: 60px;
+            height: 60px;
             background: #ffd700;
             color: #0a0a1a;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
             z-index: 10;
@@ -63,7 +63,7 @@
         }
         
         .titulo {
-            font-size: 4.5rem;
+            font-size: 3rem;
             color: #00aeff;
             text-shadow: 0 0 15px rgba(0, 174, 255, 0.7);
             margin-bottom: 10px;
@@ -72,21 +72,21 @@
         
         .subtitulo {
             font-family: 'Dancing Script', cursive;
-            font-size: 4.0rem;
+            font-size: 2.5rem;
             color: #ffd700;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .contenido {
-            padding: 30px;
+            padding: 20px;
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 20px;
         }
         
         .foto-section {
             flex: 1;
-            min-width: 300px;
+            min-width: 0;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -98,13 +98,14 @@
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             background: #2a2a4a;
-            height: 400px;
+            height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ffd700;
             font-style: italic;
             position: relative;
+            touch-action: pan-y;
         }
         
         /* Estilos para el carrusel - MODIFICADO PARA 6 FOTOS */
@@ -126,6 +127,7 @@
             width: 16.666%; /* 100% / 6 imágenes = 16.666% */
             height: 100%;
             object-fit: cover;
+            user-select: none;
         }
         
         .carrusel-controls {
@@ -153,10 +155,41 @@
             transform: scale(1.2);
         }
         
+        /* Controles de navegación */
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+        
+        .carrusel-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .carrusel-btn.prev {
+            left: 8px;
+        }
+        
+        .carrusel-btn.next {
+            right: 8px;
+        }
+        
         .texto-invitacion {
             flex: 1;
-            min-width: 300px;
-            padding: 20px;
+            min-width: 0;
+            padding: 15px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             border-left: 4px solid #00aeff;
@@ -166,16 +199,16 @@
         }
         
         .saludo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: #ffd700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-family: 'Dancing Script', cursive;
         }
         
         .mensaje {
-            line-height: 1.6;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            font-size: 1rem;
         }
         
         .destacado {
@@ -189,21 +222,21 @@
         
         .detalle-item {
             display: flex;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             align-items: center;
         }
         
         .icono {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             background: rgba(0, 174, 255, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 12px;
+            margin-right: 10px;
             color: #ffd700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             flex-shrink: 0;
         }
         
@@ -214,8 +247,8 @@
         .titulo-detalle {
             font-weight: bold;
             color: #ffd700;
-            margin-bottom: 3px;
-            font-size: 0.95rem;
+            margin-bottom: 2px;
+            font-size: 0.9rem;
         }
         
         .ubicacion-link {
@@ -223,7 +256,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         
         .ubicacion-link:hover {
@@ -234,27 +267,27 @@
         .nota-pileta {
             background: rgba(0, 174, 255, 0.1);
             border: 1px solid rgba(0, 174, 255, 0.3);
-            padding: 12px;
-            margin-top: 15px;
+            padding: 10px;
+            margin-top: 12px;
             border-radius: 8px;
             font-style: italic;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         
         /* Sección de alias horizontal */
         .seccion-alias-horizontal {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 174, 255, 0.1) 100%);
             border-radius: 15px;
-            padding: 25px;
-            margin: 0 30px 30px;
+            padding: 20px;
+            margin: 0 20px 20px;
             text-align: center;
             border: 1px dashed #ffd700;
         }
         
         .titulo-alias {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #ffd700;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-family: 'Dancing Script', cursive;
         }
         
@@ -263,21 +296,21 @@
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
             width: 100%;
         }
         
         .alias-texto {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: #00aeff;
             font-weight: bold;
             background: rgba(0, 0, 0, 0.3);
-            padding: 15px 20px;
+            padding: 12px 15px;
             border-radius: 10px;
             border: 2px solid #ffd700;
             text-shadow: 0 0 10px rgba(0, 174, 255, 0.5);
             flex: 1;
-            min-width: 250px;
+            min-width: 200px;
             text-align: center;
         }
         
@@ -285,8 +318,8 @@
             background: linear-gradient(135deg, #00aeff 0%, #0077ff 100%);
             color: white;
             border: none;
-            padding: 15px 25px;
-            font-size: 1rem;
+            padding: 12px 20px;
+            font-size: 0.9rem;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
@@ -294,7 +327,7 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             white-space: nowrap;
         }
         
@@ -306,29 +339,30 @@
         .nota-alias {
             font-style: italic;
             color: #ffd700;
-            margin-top: 15px;
-            font-size: 0.9rem;
+            margin-top: 12px;
+            font-size: 0.85rem;
         }
         
         .countdown {
             display: flex;
             justify-content: space-between;
-            margin: 40px 0;
-            gap: 15px;
+            margin: 30px 0;
+            gap: 10px;
+            padding: 0 20px;
         }
         
         .countdown-item {
             flex: 1;
             text-align: center;
             background: rgba(0, 174, 255, 0.1);
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             border: 1px solid rgba(0, 174, 255, 0.3);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .countdown-numero {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: #00aeff;
             text-shadow: 0 0 10px rgba(0, 174, 255, 0.5);
@@ -336,22 +370,23 @@
         
         .countdown-texto {
             color: #ffd700;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            margin-top: 10px;
+            margin-top: 8px;
         }
         
         .confirmacion {
             text-align: center;
-            margin: 30px 0;
+            margin: 25px 0;
+            padding: 0 20px;
         }
         
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
+            padding: 14px 30px;
+            font-size: 1.1rem;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
@@ -359,7 +394,7 @@
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
         }
         
@@ -370,75 +405,67 @@
         
         .firma {
             text-align: right;
-            margin-top: 30px;
+            margin-top: 25px;
             font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #ffd700;
-            padding: 0 30px;
+            padding: 0 20px;
         }
         
         .footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             background: rgba(0, 0, 0, 0.3);
             border-top: 1px solid rgba(0, 174, 255, 0.3);
         }
         
-        .share-section {
-            margin-top: 20px;
-            text-align: center;
-        }
-        
-        .share-text {
-            color: #ffd700;
-            margin-bottom: 10px;
-        }
-        
-        .share-btn {
-            display: inline-block;
-            background: rgba(0, 174, 255, 0.2);
-            color: white;
-            border: 1px solid #00aeff;
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 5px;
-        }
-        
-        .share-btn:hover {
-            background: rgba(0, 174, 255, 0.4);
-        }
-        
+        /* Media Queries para Responsive */
         @media (max-width: 768px) {
-            .contenido {
-                flex-direction: column;
+            .header {
+                padding: 25px 15px;
             }
             
-            .countdown {
-                flex-wrap: wrap;
-            }
-            
-            .countdown-item {
-                flex-basis: calc(50% - 15px);
-                margin-bottom: 15px;
+            .edad {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                top: 10px;
+                right: 10px;
             }
             
             .titulo {
-                font-size: 3rem;
-            }
-            
-            .subtitulo {
                 font-size: 2.2rem;
             }
             
-            .alias-container {
+            .subtitulo {
+                font-size: 2rem;
+            }
+            
+            .contenido {
                 flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .marco-foto {
+                height: 280px;
+            }
+            
+            .texto-invitacion {
+                padding: 15px;
+            }
+            
+            .saludo {
+                font-size: 1.4rem;
+            }
+            
+            .mensaje {
+                font-size: 0.95rem;
             }
             
             .alias-texto {
-                min-width: auto;
-                width: 100%;
+                font-size: 1.3rem;
+                min-width: 100%;
             }
             
             .btn-copiar {
@@ -446,12 +473,73 @@
                 justify-content: center;
             }
             
-            .marco-foto {
-                height: 350px;
+            .countdown {
+                flex-wrap: wrap;
             }
             
-            .header {
-                padding: 30px 20px;
+            .countdown-item {
+                flex-basis: calc(50% - 10px);
+                margin-bottom: 10px;
+            }
+            
+            .countdown-numero {
+                font-size: 1.8rem;
+            }
+            
+            .btn-whatsapp {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+            
+            .firma {
+                font-size: 1.6rem;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 15px;
+            }
+            
+            .titulo {
+                font-size: 1.8rem;
+            }
+            
+            .subtitulo {
+                font-size: 1.7rem;
+            }
+            
+            .marco-foto {
+                height: 250px;
+            }
+            
+            .carrusel-btn {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .countdown-item {
+                flex-basis: 100%;
+            }
+            
+            .countdown-numero {
+                font-size: 1.6rem;
+            }
+            
+            .seccion-alias-horizontal {
+                margin: 0 15px 15px;
+                padding: 15px;
+            }
+            
+            .titulo-alias {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -459,7 +547,6 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="edad">18</div>
             <h1 class="titulo">¡Mis 18!</h1>
             <h2 class="subtitulo">Hernan</h2>
         </div>
@@ -486,6 +573,12 @@
                             <div class="carrusel-indicador" data-index="4"></div>
                             <div class="carrusel-indicador" data-index="5"></div>
                         </div>
+                        <button class="carrusel-btn prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carrusel-btn next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -552,7 +645,7 @@
             <p class="nota-alias"></p>
         </div>
         
-        <div style="padding: 0 30px;">
+        <div>
             <h3 style="text-align: center; color: #ffd700; margin-bottom: 20px; font-family: 'Dancing Script', cursive; font-size: 2rem;">
                 Cuenta regresiva
             </h3>
@@ -615,6 +708,8 @@
         const totalImages = 6; // Ahora son 6 imágenes
         const carrusel = document.querySelector('.carrusel-imagenes');
         const indicadores = document.querySelectorAll('.carrusel-indicador');
+        const prevBtn = document.querySelector('.carrusel-btn.prev');
+        const nextBtn = document.querySelector('.carrusel-btn.next');
         
         function moverCarrusel() {
             // Mueve el carrusel a la imagen actual
@@ -628,13 +723,20 @@
                     ind.classList.remove('activo');
                 }
             });
-            
-            // Avanza al siguiente índice
-            currentIndex = (currentIndex + 1) % totalImages;
         }
         
-        // Iniciar el carrusel automático
-        let carruselInterval = setInterval(moverCarrusel, 2000);
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            moverCarrusel();
+        }
+        
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            moverCarrusel();
+        }
+        
+        // Iniciar el carrusel automático (cada 2 segundos)
+        let carruselInterval = setInterval(nextSlide, 2000);
         
         // Agregar eventos a los indicadores
         indicadores.forEach(ind => {
@@ -643,8 +745,99 @@
                 clearInterval(carruselInterval);
                 currentIndex = parseInt(this.getAttribute('data-index'));
                 moverCarrusel();
-                carruselInterval = setInterval(moverCarrusel, 2000);
+                carruselInterval = setInterval(nextSlide, 2000);
             });
+        });
+        
+        // Agregar eventos a los botones
+        prevBtn.addEventListener('click', function() {
+            clearInterval(carruselInterval);
+            prevSlide();
+            carruselInterval = setInterval(nextSlide, 2000);
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            clearInterval(carruselInterval);
+            nextSlide();
+            carruselInterval = setInterval(nextSlide, 2000);
+        });
+        
+        // Funcionalidad de deslizar con el dedo
+        const carruselContainer = document.querySelector('.carrusel');
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+        
+        carruselContainer.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            currentX = startX;
+            isDragging = true;
+            clearInterval(carruselInterval); // Pausar el carrusel automático al tocar
+        });
+        
+        carruselContainer.addEventListener('touchmove', function(e) {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+        });
+        
+        carruselContainer.addEventListener('touchend', function() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const diffX = startX - currentX;
+            const threshold = 50; // Mínimo desplazamiento para cambiar de imagen
+            
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    // Deslizamiento hacia la izquierda - siguiente imagen
+                    nextSlide();
+                } else {
+                    // Deslizamiento hacia la derecha - imagen anterior
+                    prevSlide();
+                }
+            }
+            
+            // Reanudar el carrusel automático después de 2 segundos
+            carruselInterval = setInterval(nextSlide, 2000);
+        });
+        
+        // También agregar soporte para mouse (para probar en desktop)
+        carruselContainer.addEventListener('mousedown', function(e) {
+            startX = e.clientX;
+            currentX = startX;
+            isDragging = true;
+            clearInterval(carruselInterval);
+            e.preventDefault();
+        });
+        
+        carruselContainer.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            currentX = e.clientX;
+        });
+        
+        carruselContainer.addEventListener('mouseup', function() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const diffX = startX - currentX;
+            const threshold = 50;
+            
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+            
+            carruselInterval = setInterval(nextSlide, 2000);
+        });
+        
+        carruselContainer.addEventListener('mouseleave', function() {
+            if (isDragging) {
+                isDragging = false;
+                carruselInterval = setInterval(nextSlide, 2000);
+            }
         });
     
         // Copiar alias
@@ -655,7 +848,6 @@
         }
         
         document.getElementById('ubicacionLink').addEventListener('click', function() {
-            // Reemplaza con la dirección real de tu quinta
             const url = `https://maps.app.goo.gl/dBUoKQFEsxxUZKtH9`;
             window.open(url, '_blank');
         });
